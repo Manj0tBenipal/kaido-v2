@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 
-import "./globals.css";
+import "@/styles/globals.css";
+import Navbar from "@/components/client/Navbar";
+import Actions from "@/components/server/Actions";
+import SocialLinks from "@/components/server/SocialLinks";
 
 export const metadata: Metadata = {
   title: "Kaido- Watch Free anime",
@@ -15,7 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar>
+          <Actions isInSidebar={false} />
+          <SocialLinks />
+        </Navbar>
+
+        {children}
+      </body>
     </html>
   );
 }
