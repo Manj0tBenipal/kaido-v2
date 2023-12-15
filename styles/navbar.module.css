@@ -1,0 +1,237 @@
+.navbar {
+  position: fixed !important;
+  height: 65px;
+  width: 100%;
+  z-index: 11;
+  top: 0;
+  max-width: 1920px;
+  margin: auto;
+  gap: 40px;
+}
+.navbarPurple {
+  background-color: #6f42c1;
+  box-shadow: 1px 4px 10px black;
+}
+.burgerIcon {
+  color: white;
+  margin-inline: 20px;
+  cursor: pointer;
+}
+.burgerIcon:hover {
+  color: var(--theme);
+}
+.logo {
+  height: 40px;
+  margin-inline: 10px;
+}
+
+.searchWrapper input {
+  border: none;
+  border-radius: 50px;
+  background-color: var(--grey-dark);
+
+  color: black;
+}
+.searchWrapper input:focus,
+.floatingSearchWrapper input:focus {
+  border: none;
+  /* Optionally, you can also remove the outline that appears by default */
+  outline: none;
+}
+
+.searchWrapper {
+  position: relative;
+  height: 40px;
+  width: 20%;
+  max-width: 250px;
+}
+.searchIcon {
+  right: 20px;
+}
+.filterIcon {
+  right: 40px;
+}
+.searchText {
+  height: 100%;
+  width: 100%;
+  padding-inline: 20px;
+}
+.searchIcons {
+  position: absolute;
+
+  height: 100%;
+  cursor: pointer;
+}
+
+.socialLinksWrapper {
+  color: white;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.socialLinksWrapper > span {
+  padding: 5px;
+  border-radius: 50%;
+}
+.socialLinksWrapper span a {
+  text-decoration: none;
+  color: white;
+  line-height: 2px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.actions > * {
+  text-align: center;
+  cursor: pointer;
+}
+.actions svg {
+  color: var(--theme);
+}
+.actions *:hover {
+  color: var(--theme);
+}
+.actions a {
+  color: white;
+  text-decoration: none;
+}
+.actions p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.floatingSearchWrapper input {
+  color: black;
+  border: none;
+  background-color: var(--theme);
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+@media screen and (min-width: 1300px) {
+  .floatingSearchWrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .searchWrapper {
+    display: none;
+  }
+  .floatingSearchWrapper {
+    position: fixed;
+    left: calc(50% - 300px);
+    z-index: 900;
+    width: 100%;
+    max-width: 600px;
+    top: 60px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar .socialLinksWrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 790px) {
+  .actions {
+    display: none;
+  }
+  .floatingSearchWrapper {
+    max-width: 100%;
+    left: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .navbar {
+    height: 50px;
+    background: var(--dark) !important;
+  }
+
+  .logo {
+    height: 30px;
+  }
+  .floatingSearchWrapper {
+    top: 50px;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  transition: all 0.2s ease-in-out;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(36, 36, 40, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: -1;
+  transition: all 0.1s ease-in-out;
+}
+.close {
+  cursor: pointer;
+}
+.list {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
+  overflow-y: auto;
+  flex-direction: column;
+  row-gap: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+.list::-webkit-scrollbar {
+  display: none;
+}
+.buttonGroup {
+  padding-top: 20px;
+}
+.buttonGroup > * {
+  padding: 10px 15px;
+  border-radius: 20px;
+  background: var(--dark);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 12px;
+  margin-inline: 20px;
+}
+.buttonGroup label {
+  padding-block: 10px;
+  cursor: pointer;
+}
+.buttonGroup a {
+  background: black !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--theme);
+  gap: 3px;
+}
+
+.linkList ul {
+  list-style: none;
+  padding: 0 !important;
+}
+.linkList ul li {
+  width: 100%;
+}
+.linkList ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding-block: 15px;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.338);
+  transition: all 0.1s ease;
+}
+.linkList ul li a:hover {
+  color: var(--theme);
+  background-color: var(--dark);
+}

@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Actions from "../server/Actions";
 import { FaChevronLeft, FaComments } from "react-icons/fa";
+import styles from "@/styles/navbar.module.css";
+
 export default function NavSidebar({
   sidebarIsVisible,
   setSidebarIsVisible,
@@ -11,21 +13,21 @@ export default function NavSidebar({
 }) {
   return (
     <div
-      className="navigation-sidebar f-poppins"
+      className={`${styles.sidebar} f-poppins`}
       style={{ zIndex: sidebarIsVisible ? 100 : -1 }}
       onClick={() => setSidebarIsVisible(false)}
     >
       <div
-        className="navigation-list d-flex"
+        className={`${styles.list} d-flex`}
         style={{
           transform: sidebarIsVisible
             ? "translateX(250px)"
             : "translateX(-250px)",
         }}
       >
-        <div className="button-group d-flex-fd-column">
+        <div className={`${styles.buttonGroup} d-flex-fd-column`}>
           <div
-            className="d-flex a-center j-center close-menu"
+            className={`d-flex a-center j-center ${styles.close}`}
             style={{ width: "60%" }}
             onClick={() => setSidebarIsVisible()}
           >
@@ -39,7 +41,7 @@ export default function NavSidebar({
           </a>
         </div>
 
-        <div className="navigation-link-list">
+        <div className={styles.linkList}>
           <ul>
             <li>
               <Link href="/">Home</Link>

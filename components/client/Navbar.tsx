@@ -4,6 +4,8 @@ import Link from "next/link";
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { FaSearch, FaBars } from "react-icons/fa";
 import NavSidebar from "./NavSidebar";
+import styles from "@/styles/navbar.module.css";
+
 interface SearchForm {
   name: string;
 }
@@ -38,21 +40,22 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
   return (
     <>
       <nav
-        className={`navigation-bar a-center d-flex ${
-          pageIsScrolled ? "dark" : "transparent"
+        className={`${styles.navbar} a-center d-flex ${
+          pageIsScrolled ? styles.navbarPurple : "transparent"
         } trans-03`}
       >
-        <div className="menu-group a-center d-flex">
+        <div className="a-center d-flex">
           <FaBars
             size={20}
-            className="burger-icon trans-05"
+            className={`${styles.burgerIcon} trans-05`}
             onClick={() => setSidebarIsVisible(true)}
           />
-          <div className="logo-wrapper a-center d-flex">
+          <div className={`${styles.logoWrapper} a-center d-flex`}>
             <Link href="/">
               <Image
+                priority
                 src="/media/logo.png"
-                className="logo"
+                className={styles.logo}
                 alt="logo"
                 height={40}
                 width={150}
@@ -61,7 +64,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
             </Link>
           </div>
         </div>
-        <div className="search-wrapper">
+        <div className={styles.searchWrapper}>
           <input
             style={
               pageIsScrolled
@@ -69,7 +72,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
                 : { backgroundColor: "white", color: "black" }
             }
             type="text"
-            className="search-text f-poppins  trans-03"
+            className={`${styles.searchText} f-poppins  trans-03`}
             placeholder="Search anime..."
             name="name"
             value={searchForm?.name}
@@ -81,7 +84,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
                 window.scrollTo({ top: 0 });
                 setSearchForm({ name: "" });
               }}
-              className="search-icon search-icons trans-03"
+              className={`${styles.searchIcon}  ${styles.searchIcons} trans-03`}
               size={20}
               style={
                 pageIsScrolled
@@ -98,7 +101,7 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
         a client rendered component
          */}
         {children}
-        <div className="user-profile-nots a-center j-center d-flex trans-c-03">
+        <div className=" a-center j-center d-flex trans-c-03">
           {screenWidth < 1300 && (
             <FaSearch
               onClick={() => {
@@ -112,6 +115,30 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
         sidebarIsVisible={sidebarIsVisible}
         setSidebarIsVisible={setSidebarIsVisible}
       />
+      {floatSearchIsVisible && (
+        <div className={styles.floatingSearchWrapper}>
+          <input
+            type="text"
+            className={`${styles.searchText} f-poppins`}
+            placeholder="Search anime..."
+            name="name"
+            value={searchForm?.name}
+            onChange={(e) => handleSearchForm(e)}
+          />
+          <Link href={`/search?name=${searchForm?.name}&parameter=title`}>
+            <FaSearch
+              onClick={() => {
+                window.scrollTo({ top: 0 });
+                setSearchForm({ name: "" });
+                setFloatSearchIsVisible(false);
+              }}
+              className={`${styles.searchIcon} ${styles.searchIcons}`}
+              size={20}
+              color="black"
+            />
+          </Link>
+        </div>
+      )}
     </>
   );
 }

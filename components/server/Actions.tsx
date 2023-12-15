@@ -1,9 +1,10 @@
 import { FaRandom, FaComments, FaBroadcastTower } from "react-icons/fa";
 import Link from "next/link";
+import styles from "@/styles/navbar.module.css";
 export default function Actions({ isInSidebar }: { isInSidebar: boolean }) {
   return (
     <div
-      className="nav-actions f-poppins text-light trans-c-03"
+      className={`${styles.actions} f-poppins text-light trans-c-03`}
       style={
         isInSidebar
           ? {

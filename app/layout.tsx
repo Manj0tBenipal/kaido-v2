@@ -19,12 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar>
-          <Actions isInSidebar={false} />
-          <SocialLinks />
-        </Navbar>
+        <div className="app-container f-poppins">
+          <Navbar>
+            <Actions isInSidebar={false} />
+            <SocialLinks />
+          </Navbar>
 
-        {children}
+          {children}
+        </div>
       </body>
     </html>
   );

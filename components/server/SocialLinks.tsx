@@ -5,9 +5,11 @@ import {
   FaTelegramPlane,
   FaTwitter,
 } from "react-icons/fa";
+import styles from "@/styles/navbar.module.css";
+
 export default function SocialLinks() {
   return (
-    <div className="social-links-wrapper">
+    <div className={`${styles.socialLinksWrapper}`}>
       <span
         style={{ backgroundColor: "#6f85d5" }}
         className="d-flex a-center j-center"
